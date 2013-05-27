@@ -7,6 +7,8 @@ class Frontend_Bands_Controller extends Frontend_Controller
  		$search = Input::all();
  		// var_dump($search); exit;
 
+ 		$allow_search = array('name', 'price_from', 'price_to');
+
  		$Bands = Band::where('status', '=', 1);
 
  		if (isset($search['name']) && $search['name'])
@@ -16,11 +18,17 @@ class Frontend_Bands_Controller extends Frontend_Controller
  		if (isset($search['price_to']) && $search['price_to'])
  			$Bands = $Bands->where('price', '<=', $search['price_to']);
 
+ 		foreach ($allow_search as $allow) {
+ 			if (!isset($search['allow']))
+ 				$search[$allow] = '';
+ 		}
+
 
  		$Bands = $Bands->get();
  		// dd($Bands);
  		$data = array(
  			'Bands' => $Bands,
+ 			'search' => $search,
  			);
  		$this->layout->content = View::make('frontend.bands.listing', $data);
   }

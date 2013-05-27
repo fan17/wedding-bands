@@ -18,3 +18,4 @@ Gallery:
 @endforeach
 <br>
 <!-- TODO: comments -->
+{{-- var_dump($Band->similar) --}}

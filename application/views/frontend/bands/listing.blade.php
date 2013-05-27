@@ -5,9 +5,9 @@
 </style>
 Band's listing
 Wyszukiwarka:
-{{ Form::open(URL::to_action('frontend.bands@listing'), 'GET')}}
-	BandName:{{ Form::text('name') }}<br>
-	Cena od:{{ Form::text('price_from') }} do {{ Form::text('price_to') }}
+{{ Form::open(URL::current(), 'GET')}}
+	BandName:{{ Form::text('name', $search['name']) }}<br>
+	Cena od:{{ Form::text('price_from', $search['price_from']) }} do {{ Form::text('price_to', $search['price_to']) }}
 	{{ Form::submit('Click Me!') }}
 {{ Form::close() }}
 <br>

@@ -26,7 +26,10 @@ class Band extends Eloquent
 		return $ret;
 	}
 
-	// public function get_band_key() {
-	// 	return $this->get_attribute('key');
-	// }
+	public function similar() {
+		$tags = $this->has_many_and_belongs_to('Tag', 'bands_tags', 'id_band', 'id_tag')
+			->where('status', '=', 1)
+			->get();
+			var_dump($tags); exit;
+	}
 }

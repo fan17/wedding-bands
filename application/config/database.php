@@ -42,7 +42,7 @@ return array(
 	|
 	*/
 
-	'default' => 'mysql',
+	'default' => 'sqlite',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -69,6 +69,10 @@ return array(
 			'password' => '',
 			'charset'  => 'utf8',
 			'prefix'   => '',
+		),
+		'sqlite' => array(
+     'driver'   => 'sqlite',
+     'database' => 'application',
 		),
 
 
